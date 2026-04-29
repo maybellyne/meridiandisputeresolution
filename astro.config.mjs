@@ -1,12 +1,8 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://meridiandisputeresolution.ca',
+  site: 'https://github.com/maybellyne/meridiandisputeresolution',
+  base: '/meridiandisputeresolution',
   output: 'static',
   trailingSlash: 'never',
-
-  integrations: [
-    sitemap(),
-  ],
 });
