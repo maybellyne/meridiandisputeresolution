@@ -60,7 +60,7 @@ const FORMSPREE_ID = 'xdabnlga';
 
   <div class="form-field">
     <label for="preferred-contact">Preferred contact method</label>
-    <select id="preferred-contact" name="preferred_contact" id="preferred-contact">
+    <select id="preferred-contact" name="preferred_contact">
       <option value="email">Email</option>
       <option value="phone">Phone</option>
     </select>
@@ -86,10 +86,10 @@ const FORMSPREE_ID = 'xdabnlga';
   <button type="submit" class="cta-button">Request a Consultation</button>
 </form>
 
-<script>
-  const select = document.getElementById('preferred-contact') as HTMLSelectElement;
-  const phoneField = document.getElementById('phone-field') as HTMLDivElement;
-  const phoneInput = document.getElementById('phone') as HTMLInputElement;
+<script is:inline>
+  const select = document.getElementById('preferred-contact');
+  const phoneField = document.getElementById('phone-field');
+  const phoneInput = document.getElementById('phone');
 
   select.addEventListener('change', () => {
     const isPhone = select.value === 'phone';
