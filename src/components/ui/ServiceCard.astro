@@ -1,5 +1,6 @@
 ---
 import { CTA_LEARN_MORE } from '../../lib/cta';
+import { url } from '../../lib/url';
 
 interface Props {
   title: string;
@@ -13,5 +14,5 @@ const { title, description, href } = Astro.props;
 <div class="card">
   <h3>{title}</h3>
   <p>{description}</p>
-  <a href={href} class="text-link">{CTA_LEARN_MORE} &rarr;</a>
+  <a href={url(href)} class="text-link">{CTA_LEARN_MORE} &rarr;</a>
 </div>

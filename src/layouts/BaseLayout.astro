@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { url } from '../lib/url';
 
 interface Props {
   title: string;
@@ -10,10 +11,12 @@ interface Props {
 
 const { title, description, canonical, schema } = Astro.props;
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
-  return currentPath.startsWith(href);
+function isActive(path: string) {
+  const full = `${base}${path}`;
+  if (path === '/') return currentPath === base || currentPath === `${base}/`;
+  return currentPath.startsWith(full);
 }
 ---
 
@@ -22,42 +25,34 @@ function isActive(href: string) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- <title>{title}</title> -->
     <title>
-  {title
-    ? `${title} | Meridian Dispute Resolution`
-    : "Meridian Dispute Resolution"}
-</title>
-    <!-- <meta name="description" content={description} /> -->
+      {title
+        ? `${title} | Meridian Dispute Resolution`
+        : "Meridian Dispute Resolution"}
+    </title>
+
     <meta
-  name="description"
-  content={
-    description ||
-    "Professional mediation services in Saskatchewan for workplace, commercial, family, and estate disputes. Confidential and neutral conflict resolution."
-  }
-/>
+      name="description"
+      content={description ||
+        "Professional mediation services in Saskatchewan for workplace, commercial, family, and estate disputes. Confidential and neutral conflict resolution."}
+    />
 
     <link
-  rel="canonical"
-  href={canonical || "https://meridiandisputeresolution.ca"}
-/>
-    
-    <meta
-  property="og:title"
-  content={
-    title
-      ? `${title} | Meridian Dispute Resolution`
-      : "Meridian Dispute Resolution"
-  }
-/>
+      rel="canonical"
+      href={canonical || "https://meridiandisputeresolution.ca"}
+    />
 
-<meta
-  property="og:description"
-  content={
-    description ||
-    "Professional mediation services in Saskatchewan. Confidential, structured dispute resolution."
-  }
-/>
+    <meta
+      property="og:title"
+      content={title
+        ? `${title} | Meridian Dispute Resolution`
+        : "Meridian Dispute Resolution"}
+    />
+    <meta
+      property="og:description"
+      content={description ||
+        "Professional mediation services in Saskatchewan. Confidential, structured dispute resolution."}
+    />
     <meta property="og:type" content="website" />
     {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:site_name" content="Meridian Dispute Resolution" />
@@ -65,43 +60,43 @@ function isActive(href: string) {
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-  <script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Meridian Dispute Resolution Inc",
-  "url": "https://meridiandisputeresolution.ca",
-  "description":
-    "Mediation and conflict resolution services for workplace, commercial, family, and estate disputes across Saskatchewan and Canada.",
-  "areaServed": {
-    "@type": "Place",
-    "name": "Saskatchewan, Canada"
-  },
-  "serviceType": [
-    "Workplace Mediation",
-    "Family Mediation",
-    "Commercial Mediation",
-    "Estate Mediation"
-  ],
-  "sameAs": []
-})} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Meridian Dispute Resolution Inc",
+      "url": "https://meridiandisputeresolution.ca",
+      "description": "Mediation and conflict resolution services for workplace, commercial, family, and estate disputes across Saskatchewan and Canada.",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Saskatchewan, Canada"
+      },
+      "serviceType": [
+        "Workplace Mediation",
+        "Family Mediation",
+        "Commercial Mediation",
+        "Estate Mediation"
+      ],
+      "sameAs": []
+    })} />
   </head>
 
   <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href={url('/')} class="skip-link">Skip to content</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="site-name" aria-label="Meridian Dispute Resolution — Home">
+        <a href={url('/')} class="site-name" aria-label="Meridian Dispute Resolution — Home">
           Meridian Dispute Resolution
         </a>
 
         <nav aria-label="Main navigation">
-          <a href="/services" class:list={['nav-link', { active: isActive('/services') }]}>Services</a>
-          <a href="/how-it-works" class:list={['nav-link', { active: isActive('/how-it-works') }]}>How It Works</a>
-          <a href="/fees" class:list={['nav-link', { active: isActive('/fees') }]}>Fees</a>
-          <a href="/faq" class:list={['nav-link', { active: isActive('/faq') }]}>FAQ</a>
-          <a href="/about" class:list={['nav-link', { active: isActive('/about') }]}>About</a>
-          <a href="/contact" class="nav-cta">Book Consultation</a>
+          <a href={url('/services')} class:list={['nav-link', { active: isActive('/services') }]}>Services</a>
+          <a href={url('/how-it-works')} class:list={['nav-link', { active: isActive('/how-it-works') }]}>How It Works</a>
+          <a href={url('/fees')} class:list={['nav-link', { active: isActive('/fees') }]}>Fees</a>
+          <a href={url('/faq')} class:list={['nav-link', { active: isActive('/faq') }]}>FAQ</a>
+          <a href={url('/about')} class:list={['nav-link', { active: isActive('/about') }]}>About</a>
+          <a href={url('/contact')} class="nav-cta">Book Consultation</a>
         </nav>
       </div>
     </header>
@@ -118,13 +113,13 @@ function isActive(href: string) {
           Not legal counsel. Not therapy.
         </p>
         <nav aria-label="Footer navigation" class="footer-nav">
-          <a href="/services">Services</a>
-          <a href="/how-it-works">How It Works</a>
-          <a href="/faq">FAQ</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/disclaimer">Disclaimer</a>
+          <a href={url('/services')}>Services</a>
+          <a href={url('/how-it-works')}>How It Works</a>
+          <a href={url('/faq')}>FAQ</a>
+          <a href={url('/about')}>About</a>
+          <a href={url('/contact')}>Contact</a>
+          <a href={url('/privacy-policy')}>Privacy Policy</a>
+          <a href={url('/disclaimer')}>Disclaimer</a>
         </nav>
         <p class="footer-copy">&copy; {new Date().getFullYear()} Meridian Dispute Resolution Inc. All rights reserved.</p>
       </div>

@@ -1,12 +1,11 @@
 ---
 import { CTA_PRIMARY, CTA_HREF } from '../../lib/cta';
+import { url } from '../../lib/url';
 
 interface Props {
   title: string;
   subtitle: string;
-  /** Override the default primary CTA label */
   ctaLabel?: string;
-  /** Override the default primary CTA href */
   ctaHref?: string;
 }
 
@@ -21,5 +20,5 @@ const {
 <section class="hero container">
   <h1>{title}</h1>
   <p class="subtitle">{subtitle}</p>
-  <a class="cta-button" href={ctaHref}>{ctaLabel}</a>
+  <a class="cta-button" href={url(ctaHref)}>{ctaLabel}</a>
 </section>
