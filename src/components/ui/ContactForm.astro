@@ -1,0 +1,105 @@
+---
+import { services } from '../../content/services';
+
+/**
+ * Replace YOUR_FORMSPREE_ID with your actual Formspree endpoint ID.
+ * Sign up at https://formspree.io — the ID looks like: xabcdefg
+ * Full action URL format: https://formspree.io/f/YOUR_FORMSPREE_ID
+ */
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+---
+
+<form
+  class="contact-form"
+  action={`https://formspree.io/f/${FORMSPREE_ID}`}
+  method="POST"
+>
+  <!-- Redirect to thank-you page after submission -->
+  <input type="hidden" name="_next" value="/contact/thank-you" />
+  <!-- Prevent spam -->
+  <input type="hidden" name="_subject" value="New consultation request — Meridian Dispute Resolution" />
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="first-name">First name</label>
+      <input
+        id="first-name"
+        type="text"
+        name="first_name"
+        autocomplete="given-name"
+        required
+      />
+    </div>
+    <div class="form-field">
+      <label for="last-name">Last name</label>
+      <input
+        id="last-name"
+        type="text"
+        name="last_name"
+        autocomplete="family-name"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email address</label>
+    <input
+      id="email"
+      type="email"
+      name="email"
+      autocomplete="email"
+      required
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="area">Area of dispute</label>
+    <select id="area" name="area" required>
+      <option value="" disabled selected>Select an area</option>
+      {services.map(s => (
+        <option value={s.slug}>{s.shortTitle}</option>
+      ))}
+      <option value="unsure">Not sure / Other</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="parties">Number of parties involved</label>
+    <select id="parties" name="parties" required>
+      <option value="" disabled selected>Select</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4+">4 or more</option>
+    </select>
+  </div>
+
+  <div class="form-field">
+    <label for="situation">
+      Brief description of the situation
+      <span class="form-hint">What is the core dispute? What outcome are you hoping for?</span>
+    </label>
+    <textarea
+      id="situation"
+      name="situation"
+      rows="5"
+      required
+    ></textarea>
+  </div>
+
+  <div class="form-field">
+    <label for="preferred-contact">Preferred contact method</label>
+    <select id="preferred-contact" name="preferred_contact">
+      <option value="email">Email</option>
+      <option value="phone">Phone</option>
+    </select>
+  </div>
+
+  <p class="form-privacy-note">
+    All information submitted is treated as confidential and used solely to
+    assess your situation prior to consultation.
+    See our <a href="/privacy-policy">Privacy Policy</a>.
+  </p>
+
+  <button type="submit" class="cta-button">Request a Consultation</button>
+</form>

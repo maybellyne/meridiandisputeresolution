@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import { services } from '../../content/services';
+import { serviceSchema } from '../../lib/schema';
+import { seo } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+const meta = seo(
+  service.title,
+  service.description,
+  `/services/${service.slug}`
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  schema={serviceSchema(service)}
+>
+  <main class="container-narrow">
+    <article>
+      <p class="breadcrumb">
+        <a href="/services">Services</a> &rsaquo; {service.shortTitle}
+      </p>
+
+      <h1>{service.title}</h1>
+
+      <section aria-label="Service description">
+        {service.body?.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </section>
+
+      <section aria-label="Scope of practice">
+        <h2>Scope of Practice</h2>
+        <ul class="service-points">
+          {service.points?.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </section>
+
+      {service.neutralityNote && (
+        <aside class="neutrality-note">
+          {service.neutralityNote}
+        </aside>
+      )}
+    </article>
+
+    <CTASection
+      title="Ready to assess your situation?"
+      body="The initial consultation is free and carries no obligation. We will provide an honest assessment of whether mediation is appropriate for your situation."
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .neutrality-note {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    border-left: 3px solid var(--border);
+    padding-left: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  h2 {
+    margin-top: var(--space-6);
+  }
+</style>

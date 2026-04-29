@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import { processSteps } from '../content/process';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'How It Works',
+  'Meridian mediation follows a structured four-stage process: free consultation, preparation, facilitated sessions, and written resolution framework.',
+  '/how-it-works'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+>
+  <section class="container-narrow">
+    <h1>How It Works</h1>
+    <p class="lead">
+      Mediation works best when the process itself is clear. Meridian follows
+      a structured four-stage approach that is the same across all areas of
+      practice — adapted in delivery, not in discipline.
+    </p>
+    <p>
+      Each stage is designed to reduce uncertainty, keep decision-making with
+      the parties, and ensure that any agreement reached is durable.
+    </p>
+  </section>
+
+  <section class="container-narrow">
+    <div class="steps">
+      {processSteps.map(step => (
+        <div class="step">
+          <div class="step-number" aria-hidden="true">{step.number}</div>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-narrow">
+    <hr class="divider" />
+    <h2>A Note on Confidentiality</h2>
+    <p>
+      Every stage of the Meridian process is confidential. Information shared
+      during preparation or sessions cannot be used in subsequent legal
+      proceedings without the written consent of all parties. Meridian will
+      explain the specific confidentiality terms — including any legal
+      exceptions — at the outset of your first session.
+    </p>
+
+    <h2>Virtual and In-Person</h2>
+    <p>
+      Meridian provides mediation virtually across Canada. In-person sessions
+      may be available in Saskatchewan depending on the nature of the matter.
+      Both formats follow the same structured process.
+    </p>
+  </section>
+
+  <CTASection
+    title="See if mediation is right for your situation"
+    body="The initial consultation is free. Meridian will give you a clear picture of the process and whether it fits your circumstances."
+  />
+</BaseLayout>

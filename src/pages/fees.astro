@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'Fees',
+  'Meridian does not publish fixed rates. Fees are discussed transparently during the free initial consultation, before any commitment is made.',
+  '/fees'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+>
+  <section class="container-narrow">
+    <h1>Fees</h1>
+    <p class="lead">
+      Meridian does not publish fixed rates. Dispute resolution does not
+      lend itself to standardized pricing.
+    </p>
+
+    <p>
+      The scope of a mediation engagement depends on the complexity of the
+      dispute, the number of parties involved, the volume of preparation
+      required, and the number of sessions needed to reach resolution. A
+      straightforward two-party commercial dispute and a multi-beneficiary
+      estate conflict are fundamentally different in scope — and pricing
+      that pretends otherwise would be misleading.
+    </p>
+
+    <h2>What to Expect</h2>
+    <p>
+      Fees are discussed transparently and agreed upon during the initial
+      consultation, before any commitment is made to proceed. You will
+      know exactly what the engagement involves — and what it will cost —
+      before you decide whether to move forward.
+    </p>
+    <p>
+      There is no fee for the initial consultation. It exists to assess
+      your situation, determine whether mediation is appropriate, and give
+      you the information you need to make that decision.
+    </p>
+
+    <h2>Cost Relative to Litigation</h2>
+    <p>
+      Mediation is, in most cases, significantly less expensive than
+      litigation or arbitration — and faster. The goal is not simply to
+      be cheaper, but to resolve disputes more efficiently and with outcomes
+      that the parties themselves have shaped. Those outcomes tend to be
+      more durable than imposed decisions.
+    </p>
+
+    <h2>How Fees Are Structured</h2>
+    <p>
+      Fees are typically structured on a session or engagement basis,
+      depending on the matter. Where parties share the cost of mediation
+      equally — which is common — that arrangement is confirmed in writing
+      at the outset.
+    </p>
+  </section>
+
+  <CTASection
+    title="Discuss fees during a free consultation"
+    body="No rates are committed to before you have a clear picture of the process and what your matter involves."
+  />
+</BaseLayout>

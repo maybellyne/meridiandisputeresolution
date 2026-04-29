@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'Privacy Policy',
+  'How Meridian Dispute Resolution collects, uses, and protects your personal information.',
+  '/privacy-policy'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+>
+  <section class="container-narrow">
+    <h1>Privacy Policy</h1>
+    <p class="muted">Last updated: {new Date().getFullYear()}</p>
+
+    <p>
+      Meridian Dispute Resolution Inc (&ldquo;Meridian&rdquo;) is committed to
+      protecting the privacy of individuals who contact us or use our services.
+      This policy describes what information we collect, how it is used, and
+      how it is protected.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <p>
+      When you submit a consultation request through this website, we collect
+      the name, email address, and situational information you provide.
+      We do not collect payment information through this site.
+    </p>
+
+    <h2>How We Use Your Information</h2>
+    <p>
+      Information submitted through the contact form is used solely to assess
+      your situation and respond to your consultation request. We do not sell,
+      trade, or share your information with third parties, except as required
+      by law.
+    </p>
+
+    <h2>Confidentiality of Mediation Communications</h2>
+    <p>
+      Information disclosed during mediation sessions is subject to
+      confidentiality obligations that are separate from and in addition to
+      this privacy policy. Those obligations are explained in full at the
+      outset of each engagement.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <p>
+      This site uses Formspree to process contact form submissions. Formspree
+      may store submitted data in accordance with their own privacy policy.
+      We encourage you to review Formspree's privacy terms at formspree.io.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy can be directed to Meridian via the
+      <a href="/contact">contact page</a>.
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ServiceGridSection from '../components/sections/ServiceGridSection.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import { services } from '../content/services';
+import { organizationSchema } from '../lib/schema';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'Meridian Dispute Resolution',
+  'Neutral mediation services for workplace, family, commercial, and estate disputes. Based in Saskatchewan, serving all of Canada.',
+  '/'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  schema={organizationSchema}
+>
+  <!-- HERO -->
+  <HeroSection
+    title="Resolve Conflict Without Litigation"
+    subtitle="Neutral, confidential mediation for workplace, family, commercial, and estate disputes in Saskatchewan and across Canada. Structured process. No side-taking."
+  />
+
+  <!-- TRUST / POSITIONING STRIP -->
+  <section class="container-narrow trust-strip">
+    <p>
+      Neutral third-party mediation • Confidential process • Workplace, family, commercial & estate disputes
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <ServiceGridSection
+    services={services}
+    title="Areas of Practice"
+  />
+
+  <!-- HOW IT IS FRAMED (implicit via CTA instead of new section to avoid bloat) -->
+  <section class="container-narrow process-note">
+    <h2>How the Process Works</h2>
+    <ol>
+      <li>Free initial consultation (30 minutes)</li>
+      <li>Structured mediation sessions (individual or joint)</li>
+      <li>Facilitated resolution or agreement documentation</li>
+    </ol>
+  </section>
+
+  <!-- CTA -->
+  <CTASection
+    title="Start with a Confidential Consultation"
+    body="No obligation. No pressure. A 30-minute assessment to determine whether mediation is appropriate for your situation."
+  />
+</BaseLayout>
+
+<style>
+  .trust-strip {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .process-note {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .process-note h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .process-note ol {
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+  }
+
+  .process-note li {
+    margin-bottom: var(--space-2);
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  /** Accepts an array of paragraphs or a single string */
+  content: string | string[];
+}
+
+const { title, content } = Astro.props;
+const paragraphs = Array.isArray(content) ? content : [content];
+---
+
+<section class="container-narrow">
+  <h2>{title}</h2>
+  {paragraphs.map(p => <p>{p}</p>)}
+</section>

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block internal build artifacts
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /dist/
+
+# Optional: block admin or utility routes (future-proofing)
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://meridiandisputeresolution.ca/sitemap-index.xml

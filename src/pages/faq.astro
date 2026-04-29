@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import { faqs } from '../content/faq';
+import { faqPageSchema } from '../lib/schema';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'FAQ',
+  'Common questions about mediation, confidentiality, fees, and how the Meridian process works.',
+  '/faq'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  schema={faqPageSchema(faqs)}
+>
+  <main class="container-narrow">
+    <section>
+      <h1>Frequently Asked Questions</h1>
+
+      <p class="lead">
+        Answers to common questions about mediation and the Meridian process.
+        If your question is not addressed here, the initial consultation is the
+        best place to clarify details specific to your situation.
+      </p>
+    </section>
+
+    <FAQSection items={faqs} title="" />
+
+    <CTASection
+      title="Still have questions?"
+      body="The initial consultation is free. You can ask anything, including whether mediation is appropriate for your situation."
+    />
+  </main>
+</BaseLayout>

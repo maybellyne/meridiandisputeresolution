@@ -1,0 +1,23 @@
+---
+import { CTA_PRIMARY, CTA_HREF } from '../../lib/cta';
+
+interface Props {
+  title?: string;
+  body?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  title = 'Begin with Clarity',
+  body = 'A free 30-minute consultation to assess your situation. No obligation to proceed.',
+  ctaLabel = CTA_PRIMARY,
+  ctaHref = CTA_HREF,
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <h2>{title}</h2>
+  <p>{body}</p>
+  <a class="cta-button" href={ctaHref}>{ctaLabel}</a>
+</section>

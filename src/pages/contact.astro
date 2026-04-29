@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ui/ContactForm.astro';
+import { organizationSchema } from '../lib/schema';
+import { seo } from '../lib/seo';
+
+const meta = seo(
+  'Book a Free Consultation',
+  'Request a free 30-minute consultation with Meridian Dispute Resolution. No obligation to proceed.',
+  '/contact'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  schema={organizationSchema}
+>
+  <section class="container-narrow">
+    <h1>Book a Free Consultation</h1>
+
+    <p class="lead">
+      The initial consultation is a structured 30-minute conversation —
+      by phone or video — to assess your situation and determine whether
+      mediation is appropriate.
+    </p>
+
+    <p>
+      There is no obligation to proceed, and no fee for this session.
+      Meridian will give you an honest assessment of whether your matter
+      is suitable for mediation and what the process would involve.
+    </p>
+  </section>
+
+  <section class="container-narrow">
+    <ContactForm />
+  </section>
+</BaseLayout>

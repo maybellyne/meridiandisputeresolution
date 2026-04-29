@@ -1,0 +1,20 @@
+---
+import FAQItem from '../ui/FAQItem.astro';
+import type { FAQRecord } from '../../content/faq';
+
+interface Props {
+  items: FAQRecord[];
+  title?: string;
+}
+
+const { items, title = 'Frequently Asked Questions' } = Astro.props;
+---
+
+<section class="container-narrow">
+  {title && <h2>{title}</h2>}
+  <div class="faq-list">
+    {items.map(item => (
+      <FAQItem q={item.q} a={item.a} />
+    ))}
+  </div>
+</section>

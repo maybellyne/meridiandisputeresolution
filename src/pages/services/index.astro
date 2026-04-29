@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceGridSection from '../../components/sections/ServiceGridSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import { services } from '../../content/services';
+import { seo } from '../../lib/seo';
+
+const meta = seo(
+  'Services',
+  'Meridian offers structured mediation across four core areas: workplace, family, commercial, and estate disputes. Serving clients across Canada.',
+  '/services'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+>
+  <section class="container-narrow">
+    <h1>Areas of Practice</h1>
+    <p class="lead">
+      Meridian provides structured, neutral mediation across four core areas.
+      Each practice area involves distinct dynamics, relationship stakes, and
+      process considerations — which is why we approach each one with a
+      tailored framework rather than a generic process.
+    </p>
+    <p>
+      If you are unsure which category applies to your situation, the
+      initial consultation is the right place to start. Many disputes
+      span more than one area.
+    </p>
+  </section>
+
+  <ServiceGridSection services={services} />
+
+  <CTASection
+    title="Not sure where your dispute fits?"
+    body="Start with a free consultation. Meridian will assess your situation and explain which approach is most appropriate."
+  />
+</BaseLayout>

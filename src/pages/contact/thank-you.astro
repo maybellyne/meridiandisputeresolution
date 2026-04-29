@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { seo } from '../../lib/seo';
+
+const meta = seo(
+  'Request Received',
+  'Your consultation request has been received. Meridian will be in touch shortly.',
+  '/contact/thank-you'
+);
+---
+
+<BaseLayout
+  title={meta.title}
+  description={meta.description}
+>
+  <section class="container-narrow">
+    <h1>Request Received</h1>
+    <p class="lead">
+      Your consultation request has been submitted.
+    </p>
+    <p>
+      Meridian will review your submission and be in touch within one business
+      day to confirm a time. If your matter is time-sensitive, please indicate
+      that in your submission or reach out directly.
+    </p>
+    <p>
+      All information submitted is treated as confidential.
+    </p>
+    <p>
+      <a href="/">Return to home</a>
+    </p>
+  </section>
+</BaseLayout>
