@@ -9,7 +9,7 @@ export interface SEOMeta {
 
 export function seo(title: string, description: string, path: string = '/'): SEOMeta {
   return {
-    title: title === SITE_NAME ? SITE_NAME : `${title} | ${SITE_NAME}`,
+    title,
     description,
     canonical: `${SITE_URL}${path}`,
   };
