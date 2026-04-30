@@ -20,17 +20,36 @@ const meta = seo(
   canonical={meta.canonical}
   schema={organizationSchema}
 >
+
   <!-- HERO -->
   <HeroSection
     title="Resolve Conflict Without Litigation"
     subtitle="Neutral, confidential mediation for workplace, family, commercial, and estate disputes in Saskatchewan and across Canada. Structured process. No side-taking."
   />
 
-  <!-- TRUST / POSITIONING STRIP -->
-  <section class="container-narrow trust-strip">
-    <p>
-      Neutral third-party mediation • Confidential process • Workplace, family, commercial & estate disputes
-    </p>
+  <!-- TRUST STRIP (UPGRADED STRUCTURE) -->
+  <section class="container trust-strip">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <strong>Neutral</strong>
+        <span>Third-party facilitation</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>Confidential</strong>
+        <span>Private resolution process</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>Canada-wide</strong>
+        <span>Remote & in-person sessions</span>
+      </div>
+
+      <div class="trust-item">
+        <strong>Structured</strong>
+        <span>Defined mediation framework</span>
+      </div>
+    </div>
   </section>
 
   <!-- SERVICES -->
@@ -39,13 +58,25 @@ const meta = seo(
     title="Areas of Practice"
   />
 
-  <!-- HOW IT WORKS -->
-  <section class="container-narrow process-note">
+  <!-- PROCESS -->
+  <section class="container process-note">
     <h2>How the Process Works</h2>
-    <ol>
-      <li>Free initial consultation (30 minutes)</li>
-      <li>Structured mediation sessions (individual or joint)</li>
-      <li>Facilitated resolution or agreement documentation</li>
+
+    <ol class="process-list">
+      <li>
+        <strong>Initial consultation</strong>
+        <span>Free 30-minute assessment to determine suitability</span>
+      </li>
+
+      <li>
+        <strong>Mediation sessions</strong>
+        <span>Structured individual or joint sessions facilitated neutrally</span>
+      </li>
+
+      <li>
+        <strong>Resolution</strong>
+        <span>Agreement documentation or facilitated closure</span>
+      </li>
     </ol>
   </section>
 
@@ -54,32 +85,90 @@ const meta = seo(
     title="Start with a Confidential Consultation"
     body="No obligation. No pressure. A 30-minute assessment to determine whether mediation is appropriate for your situation."
   />
+
 </BaseLayout>
 
 <style>
+  /* TRUST */
   .trust-strip {
-    text-align: center;
-    font-size: 0.95rem;
-    color: var(--text-muted);
     margin-top: var(--space-6);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-7);
   }
 
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .trust-item strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .trust-item span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* PROCESS */
   .process-note {
     margin-top: var(--space-8);
     margin-bottom: var(--space-8);
   }
 
   .process-note h2 {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
   }
 
-  .process-note ol {
-    padding-left: 1.25rem;
+  .process-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .process-list li {
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .process-list strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .process-list span {
     color: var(--text-muted);
+    line-height: 1.6;
   }
 
-  .process-note li {
-    margin-bottom: var(--space-2);
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .trust-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .trust-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -9,10 +9,107 @@ interface Props {
 }
 
 const { title, description, href } = Astro.props;
+
+/* simple semantic icon map */
+const icons: Record<string, string> = {
+  Workplace: "briefcase",
+  Family: "home",
+  Commercial: "building",
+  Estate: "file",
+};
+
+const icon = Object.keys(icons).find(k => title.includes(k));
 ---
 
-<div class="card">
+<a class="card" href={url(href)}>
+  <div class="icon">
+    {icon === "Workplace" && (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M4 7h16v13H4V7Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M9 7V5h6v2" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    )}
+
+    {icon === "Family" && (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10Z"
+          stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    )}
+
+    {icon === "Commercial" && (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M3 21h18" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6 21V7h12v14" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    )}
+
+    {icon === "Estate" && (
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M6 4h12v16H6V4Z" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M9 8h6M9 12h6" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    )}
+  </div>
+
   <h3>{title}</h3>
   <p>{description}</p>
-  <a href={url(href)} class="text-link">{CTA_LEARN_MORE} &rarr;</a>
-</div>
+
+  <span class="text-link">
+    {CTA_LEARN_MORE} →
+  </span>
+</a>
+
+<style>
+  .card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--space-5);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(30, 58, 138, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--space-3);
+    color: var(--accent);
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  h3 {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+    font-weight: 650;
+    color: var(--accent);
+  }
+
+  p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: var(--space-4);
+  }
+
+  .text-link {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .card:hover .text-link {
+    color: var(--accent-hover);
+  }
+</style>

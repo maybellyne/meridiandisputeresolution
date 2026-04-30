@@ -110,16 +110,25 @@ function isActive(path: string) {
       </div>
     </footer>
 
-    <!-- Minimal JS toggle -->
+    <!-- Phase 2 Navigation Script -->
     <script>
       const toggle = document.querySelector('.nav-toggle');
       const nav = document.querySelector('.main-nav');
+      const links = document.querySelectorAll('.main-nav a');
+
+      function closeMenu() {
+        document.body.classList.remove('nav-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
 
       toggle?.addEventListener('click', () => {
-        document.body.classList.toggle('nav-open');
+        const isOpen = document.body.classList.toggle('nav-open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
 
-        const expanded = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!expanded));
+      // Close on link click
+      links.forEach(link => {
+        link.addEventListener('click', closeMenu);
       });
     </script>
   </body>
