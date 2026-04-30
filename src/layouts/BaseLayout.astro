@@ -55,25 +55,6 @@ function isActive(path: string) {
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
-
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Meridian Dispute Resolution Inc",
-      "url": "https://meridiandisputeresolution.ca",
-      "description": "Mediation and conflict resolution services for workplace, commercial, family, and estate disputes across Saskatchewan and Canada.",
-      "areaServed": {
-        "@type": "Place",
-        "name": "Saskatchewan, Canada"
-      },
-      "serviceType": [
-        "Workplace Mediation",
-        "Family Mediation",
-        "Commercial Mediation",
-        "Estate Mediation"
-      ],
-      "sameAs": []
-    })} />
   </head>
 
   <body>
@@ -85,7 +66,16 @@ function isActive(path: string) {
           Meridian Dispute Resolution
         </a>
 
-        <nav aria-label="Main navigation">
+        <!-- Mobile toggle -->
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <nav class="main-nav" aria-label="Main navigation">
           <a href={url('/services')} class:list={['nav-link', { active: isActive('/services') }]}>Services</a>
           <a href={url('/how-it-works')} class:list={['nav-link', { active: isActive('/how-it-works') }]}>How It Works</a>
           <a href={url('/fees')} class:list={['nav-link', { active: isActive('/fees') }]}>Fees</a>
@@ -119,5 +109,18 @@ function isActive(path: string) {
         <p class="footer-copy">&copy; {new Date().getFullYear()} Meridian Dispute Resolution Inc. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- Minimal JS toggle -->
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.main-nav');
+
+      toggle?.addEventListener('click', () => {
+        document.body.classList.toggle('nav-open');
+
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+      });
+    </script>
   </body>
 </html>
