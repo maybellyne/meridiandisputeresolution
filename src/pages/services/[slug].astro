@@ -4,6 +4,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import { services } from '../../content/services';
 import { serviceSchema } from '../../lib/schema';
 import { seo } from '../../lib/seo';
+import { url } from '../../lib/url';
 
 export function getStaticPaths() {
   return services.map((service) => ({
@@ -30,7 +31,7 @@ const meta = seo(
   <main class="container-narrow">
     <article>
       <p class="breadcrumb">
-        <a href="/">Home</a> &rsaquo; <a href="/services">Services</a> &rsaquo; {service.shortTitle}
+        <a href={url('/')}>Home</a> &rsaquo; <a href={url('/services')}>Services</a> &rsaquo; {service.shortTitle}
       </p>
 
       <h1>{service.title}</h1>

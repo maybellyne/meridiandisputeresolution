@@ -5,6 +5,6 @@ export default defineConfig({
   site: 'https://maybellyne.github.io/meridiandisputeresolution',
   base: '/meridiandisputeresolution',
   output: 'static',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   integrations: [sitemap()],
 });
