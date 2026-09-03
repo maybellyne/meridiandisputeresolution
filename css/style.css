@@ -196,7 +196,7 @@ a {
 .button-primary:hover {
     background: var(--teal);
 }
-
+/*
 .button-secondary {
     color: var(--navy);
     border-bottom: 1px solid var(--navy);
@@ -208,7 +208,7 @@ a {
     color: var(--teal);
     border-color: var(--teal);
 }
-
+*/
 
 /* ==============================
    Temporary C1 visual
