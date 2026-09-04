@@ -231,3 +231,160 @@ a { color: inherit; text-decoration: none; }
     .hero-actions { align-items: flex-start; flex-direction: column; }
     .contact-image-placeholder { min-height: 220px; }
 }
+/* ==============================
+   How Mediation Works
+   ============================== */
+
+.process-hero-placeholder {
+    width: 100%;
+    min-height: 420px;
+    border: 1px solid var(--border);
+    background: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--muted);
+}
+
+.process-hero-placeholder span {
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.process-hero-placeholder small {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.process-section {
+    padding: 0 0 110px;
+}
+
+.process-header {
+    max-width: 760px;
+    margin-bottom: 56px;
+}
+
+.process-header .eyebrow {
+    margin-bottom: 18px;
+}
+
+.process-header h2,
+.process-cta h2 {
+    margin: 0;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.process-list {
+    max-width: 920px;
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 32px;
+    padding: 42px 0;
+    border-top: 1px solid var(--border);
+}
+
+.process-step:last-child {
+    border-bottom: 1px solid var(--border);
+}
+
+.process-number {
+    color: var(--teal);
+    font-family: "Archivo", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding-top: 4px;
+}
+
+.process-content h3 {
+    margin: 0;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.process-content p {
+    max-width: 760px;
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.process-cta {
+    padding: 80px 0 100px;
+    border-top: 1px solid var(--border);
+}
+
+.process-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 64px;
+}
+
+.process-cta-inner > div:first-child {
+    max-width: 700px;
+}
+
+.process-cta .eyebrow {
+    margin-bottom: 18px;
+}
+
+.process-cta p:not(.eyebrow) {
+    max-width: 620px;
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .process-hero-placeholder {
+        min-height: 300px;
+    }
+
+    .process-section {
+        padding-bottom: 80px;
+    }
+
+    .process-step {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 20px;
+        padding: 34px 0;
+    }
+
+    .process-content h3 {
+        font-size: 22px;
+    }
+
+    .process-cta {
+        padding: 64px 0 80px;
+    }
+
+    .process-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+}
