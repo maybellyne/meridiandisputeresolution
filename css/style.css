@@ -12,8 +12,14 @@
     --container-width: 1200px;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: var(--background);
@@ -21,11 +27,26 @@ body {
     font-family: "Inter", sans-serif;
     line-height: 1.6;
 }
-.container { width: min(100% - 48px, var(--container-width)); margin-inline: auto; }
-a { color: inherit; text-decoration: none; }
 
-/* Header */
-.site-header { border-bottom: 1px solid var(--border); }
+.container {
+    width: min(100% - 48px, var(--container-width));
+    margin-inline: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==============================
+   Header
+   ============================== */
+
+.site-header {
+    border-bottom: 1px solid var(--border);
+}
+
 .header-inner {
     min-height: 96px;
     display: flex;
@@ -33,12 +54,14 @@ a { color: inherit; text-decoration: none; }
     justify-content: space-between;
     gap: 48px;
 }
+
 .wordmark {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
 }
+
 .wordmark-main {
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -47,35 +70,84 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0.08em;
     line-height: 1;
 }
+
 .wordmark-rule {
-    width: 100%; height: 10px; position: relative; display: block;
-    border-top: 1px solid var(--navy); margin-top: 7px;
-}
-.wordmark-diamond {
-    position: absolute; width: 5px; height: 5px; background: var(--teal);
-    transform: rotate(45deg); top: -3px; left: 50%; margin-left: -2.5px;
-}
-.wordmark-sub {
-    color: var(--navy); font-family: "Archivo", sans-serif; font-size: 10px;
-    font-weight: 500; letter-spacing: 0.22em; line-height: 1; white-space: nowrap;
+    width: 100%;
+    height: 10px;
+    position: relative;
+    display: block;
+    border-top: 1px solid var(--navy);
+    margin-top: 7px;
 }
 
-/* Navigation */
-.site-nav { display: flex; align-items: center; gap: 30px; }
-.site-nav a {
-    position: relative; display: inline-flex; align-items: center; min-height: 40px;
-    padding: 8px 0; color: var(--text); font-size: 14px; font-weight: 500;
-    white-space: nowrap; transition: color 0.2s ease;
+.wordmark-diamond {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--teal);
+    transform: rotate(45deg);
+    top: -3px;
+    left: 50%;
+    margin-left: -2.5px;
 }
+
+.wordmark-sub {
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   Navigation
+   ============================== */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.site-nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 8px 0;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
 .site-nav a:not(.nav-current)::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px;
-    background: var(--teal); transform: scaleX(0); transform-origin: left center;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left center;
     transition: transform 0.2s ease;
 }
+
 .site-nav a:not(.nav-current):hover,
-.site-nav a:not(.nav-current):focus-visible { color: var(--teal); }
+.site-nav a:not(.nav-current):focus-visible {
+    color: var(--teal);
+}
+
 .site-nav a:not(.nav-current):hover::after,
-.site-nav a:not(.nav-current):focus-visible::after { transform: scaleX(1); }
+.site-nav a:not(.nav-current):focus-visible::after {
+    transform: scaleX(1);
+}
+
 .nav-current {
     min-height: 40px !important;
     padding: 0 18px !important;
@@ -92,150 +164,66 @@ a { color: inherit; text-decoration: none; }
     color: #FFFFFF !important;
 }
 
-/* Hero */
-.hero { padding: 100px 0 120px; }
-.hero-grid {
-    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-    align-items: center; gap: 80px;
-}
-.hero-content { max-width: 680px; }
-.eyebrow {
-    margin: 0 0 24px; color: var(--teal); font-family: "Archivo", sans-serif;
-    font-size: 12px; font-weight: 600; letter-spacing: 0.16em;
-}
-.hero h1, .consultation h1 {
-    margin: 0; color: var(--navy); font-family: "Archivo", sans-serif;
-    font-size: clamp(44px, 5vw, 58px); font-weight: 600; line-height: 1.08;
-    letter-spacing: -0.025em;
-}
-.hero-copy {
-    max-width: 620px; margin: 32px 0 0; color: var(--muted);
-    font-size: 18px; line-height: 1.75;
-}
-.hero-actions { display: flex; align-items: center; gap: 24px; margin-top: 40px; }
-.button {
-    display: inline-flex; align-items: center; justify-content: center; min-height: 48px;
-    padding: 0 24px; font-size: 14px; font-weight: 600; transition: 0.2s ease;
-}
-.button-primary { background: var(--navy); color: #FFFFFF; }
-.button-primary:hover, .button-primary:focus-visible { background: var(--teal); }
 
-/* Temporary C1 visual */
-.hero-visual { display: flex; align-items: center; justify-content: center; min-height: 420px; }
-.meridian-placeholder { position: relative; width: 280px; height: 360px; }
-.placeholder-line {
-    position: absolute; top: 30px; bottom: 30px; left: 50%; width: 2px;
-    transform: translateX(-50%); background: var(--navy);
-}
-.placeholder-arc {
-    position: absolute; top: 65px; width: 105px; height: 230px;
-    border-top: 2px solid; border-bottom: 2px solid; border-radius: 50%;
-}
-.placeholder-arc-left {
-    left: 20px; border-color: var(--navy); border-right: 2px solid var(--navy);
-    transform: rotate(180deg);
-}
-.placeholder-arc-right {
-    right: 20px; border-color: var(--teal); border-left: 2px solid var(--teal);
-}
-
-/* Contact / Consultation */
-.consultation { padding: 88px 0 110px; }
-.consultation-inner { display: flex; flex-direction: column; align-items: center; }
-.consultation-header { width: min(100%, 720px); text-align: center; }
-.consultation-header .eyebrow { margin-bottom: 20px; }
-.consultation h1 { font-size: clamp(40px, 5vw, 54px); }
-.consultation-copy {
-    max-width: 680px; margin: 28px auto 0; color: var(--muted);
-    font-size: 17px; line-height: 1.75;
-}
-.contact-grid {
-    width: 100%;
-    margin-top: 52px;
-    display: grid;
-    grid-template-columns: minmax(320px, 1fr) 640px;
-    align-items: start;
-    gap: 64px;
-}
-
-.contact-image-placeholder {
-    width: 100%;
-    min-height: 520px;
-    border: 1px solid var(--border);
-    background: #F8FAFC;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--muted);
-}
-
-.contact-image-placeholder span {
-    color: var(--navy);
-    font-family: "Archivo", sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-}
-
-.contact-image-placeholder small {
-    margin-top: 8px;
-    font-size: 13px;
-}
-
-.consultation-form {
-    width: 640px;
-    max-width: 100%;
-}
-
-.consultation-form iframe {
-    display: block;
-    width: 100%;
-    height: 850px;
-    border: 0;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .header-inner { gap: 28px; }
-    .site-nav { gap: 20px; }
-    .site-nav a { font-size: 13px; }
-    .hero-grid { gap: 56px; }
-}
-
-@media (max-width: 800px) {
-    .header-inner {
-        min-height: 80px; flex-direction: column; justify-content: center;
-        gap: 18px; padding: 18px 0;
-    }
-    .site-nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px 22px; }
-    .site-nav a { min-height: 34px; }
-    .nav-current { min-height: 36px !important; }
-    .hero { padding: 72px 0 80px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 64px; }
-    .hero-visual { min-height: 280px; order: 2; }
-    .hero-actions { flex-wrap: wrap; }
-    .consultation { padding: 72px 0 80px; }
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 44px; }
-    .contact-image-placeholder { min-height: 300px; }
-}
-
-@media (max-width: 480px) {
-    .container { width: min(100% - 32px, var(--container-width)); }
-    .site-nav { gap: 6px 16px; }
-    .site-nav a { font-size: 12px; }
-    .nav-current { padding: 0 14px !important; }
-    .hero h1, .consultation h1 { font-size: 42px; }
-    .hero-copy, .consultation-copy { font-size: 16px; }
-    .hero-actions { align-items: flex-start; flex-direction: column; }
-    .contact-image-placeholder { min-height: 220px; }
-}
 /* ==============================
-   How Mediation Works
+   Shared Typography
    ============================== */
 
-.process-hero-placeholder {
+.eyebrow {
+    margin: 0 0 24px;
+    color: var(--teal);
+    font-family: "Archivo", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+
+
+/* ==============================
+   Services Hero
+   ============================== */
+
+.services-hero {
+    padding: 100px 0 112px;
+}
+
+.services-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+    align-items: center;
+    gap: 80px;
+}
+
+.services-hero-content {
+    max-width: 680px;
+}
+
+.services-hero h1 {
+    margin: 0;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(44px, 5vw, 58px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.services-hero-copy {
+    max-width: 620px;
+    margin: 32px 0 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.services-hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+}
+
+.services-image-placeholder {
     width: 100%;
     min-height: 420px;
     border: 1px solid var(--border);
@@ -248,7 +236,7 @@ a { color: inherit; text-decoration: none; }
     color: var(--muted);
 }
 
-.process-hero-placeholder span {
+.services-image-placeholder span {
     color: var(--navy);
     font-family: "Archivo", sans-serif;
     font-size: 13px;
@@ -256,61 +244,60 @@ a { color: inherit; text-decoration: none; }
     letter-spacing: 0.14em;
 }
 
-.process-hero-placeholder small {
+.services-image-placeholder small {
     margin-top: 8px;
     font-size: 13px;
 }
 
-.process-section {
-    padding: 0 0 110px;
+
+/* ==============================
+   What We Do
+   ============================== */
+
+.what-we-do {
+    padding: 96px 0 112px;
+    background: #F8FAFC;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
-.process-header {
+.section-header {
     max-width: 760px;
     margin-bottom: 56px;
 }
 
-.process-header .eyebrow {
-    margin-bottom: 18px;
+.section-header .eyebrow {
+    margin-bottom: 20px;
 }
 
-.process-header h2,
-.process-cta h2 {
+.section-header h2,
+.approach-header h2,
+.cta-inner h2 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
-    font-size: clamp(32px, 4vw, 46px);
+    font-size: clamp(34px, 4vw, 46px);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.12;
     letter-spacing: -0.02em;
 }
 
-.process-list {
-    max-width: 920px;
-}
 
-.process-step {
-    display: grid;
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 32px;
-    padding: 42px 0;
+/* Practice Areas */
+
+.practice-list {
     border-top: 1px solid var(--border);
 }
 
-.process-step:last-child {
+.practice-item {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+    gap: 72px;
+    padding: 34px 0;
     border-bottom: 1px solid var(--border);
 }
 
-.process-number {
-    color: var(--teal);
-    font-family: "Archivo", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    padding-top: 4px;
-}
-
-.process-content h3 {
+.practice-heading h3 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -319,72 +306,305 @@ a { color: inherit; text-decoration: none; }
     line-height: 1.2;
 }
 
-.process-content p {
-    max-width: 760px;
-    margin: 16px 0 0;
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.75;
+.practice-body {
+    max-width: 650px;
 }
 
-.process-cta {
-    padding: 80px 0 100px;
-    border-top: 1px solid var(--border);
-}
-
-.process-cta-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 64px;
-}
-
-.process-cta-inner > div:first-child {
-    max-width: 700px;
-}
-
-.process-cta .eyebrow {
-    margin-bottom: 18px;
-}
-
-.process-cta p:not(.eyebrow) {
-    max-width: 620px;
-    margin: 20px 0 0;
+.practice-body p {
+    margin: 0;
     color: var(--muted);
     font-size: 17px;
     line-height: 1.7;
 }
 
 
-/* Responsive */
+/* ==============================
+   Meridian Approach
+   ============================== */
+
+.meridian-approach {
+    padding: 112px 0 120px;
+}
+
+.approach-inner {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.3fr);
+    gap: 96px;
+    align-items: start;
+}
+
+.approach-header {
+    position: sticky;
+    top: 32px;
+}
+
+.approach-header .eyebrow {
+    margin-bottom: 20px;
+}
+
+.approach-content > p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+/* Approach Values */
+
+.approach-values {
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+}
+
+.approach-values span {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* ==============================
+   Final CTA
+   ============================== */
+
+.services-cta {
+    padding: 104px 0 112px;
+    background: #F8FAFC;
+    border-top: 1px solid var(--border);
+}
+
+.cta-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-inner .eyebrow {
+    margin-bottom: 20px;
+}
+
+.cta-inner p:not(.eyebrow) {
+    max-width: 680px;
+    margin: 28px auto 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.button-primary {
+    margin-top: 36px;
+    background: var(--navy);
+    color: #FFFFFF;
+}
+
+.button-primary:hover,
+.button-primary:focus-visible {
+    background: var(--teal);
+}
+
+
+/* ==============================
+   Responsive
+   ============================== */
+
+@media (max-width: 900px) {
+
+    .header-inner {
+        gap: 28px;
+    }
+
+    .site-nav {
+        gap: 20px;
+    }
+
+    .site-nav a {
+        font-size: 13px;
+    }
+
+    .services-hero-grid {
+        gap: 56px;
+    }
+
+    .practice-item {
+        gap: 48px;
+    }
+
+    .approach-inner {
+        gap: 64px;
+    }
+
+}
+
 
 @media (max-width: 800px) {
 
-    .process-hero-placeholder {
+    .header-inner {
+        min-height: 80px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 18px;
+        padding: 18px 0;
+    }
+
+    .site-nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+    }
+
+    .site-nav a {
+        min-height: 34px;
+    }
+
+    .nav-current {
+        min-height: 36px !important;
+    }
+
+
+    /* Services Hero */
+
+    .services-hero {
+        padding: 72px 0 80px;
+    }
+
+    .services-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .services-hero-visual {
         min-height: 300px;
     }
 
-    .process-section {
-        padding-bottom: 80px;
+    .services-image-placeholder {
+        min-height: 300px;
     }
 
-    .process-step {
-        grid-template-columns: 48px minmax(0, 1fr);
-        gap: 20px;
-        padding: 34px 0;
+
+    /* What We Do */
+
+    .what-we-do {
+        padding: 72px 0 80px;
     }
 
-    .process-content h3 {
-        font-size: 22px;
+    .practice-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 30px 0;
     }
 
-    .process-cta {
-        padding: 64px 0 80px;
+
+    /* Meridian Approach */
+
+    .meridian-approach {
+        padding: 80px 0;
     }
 
-    .process-cta-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
+    .approach-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
+
+    .approach-header {
+        position: static;
+    }
+
+    .approach-values {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* CTA */
+
+    .services-cta {
+        padding: 80px 0;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+        width: min(100% - 32px, var(--container-width));
+    }
+
+    .site-nav {
+        gap: 6px 16px;
+    }
+
+    .site-nav a {
+        font-size: 12px;
+    }
+
+    .nav-current {
+        padding: 0 14px !important;
+    }
+
+
+    /* Services Hero */
+
+    .services-hero h1 {
+        font-size: 42px;
+    }
+
+    .services-hero-copy {
+        font-size: 16px;
+    }
+
+
+    /* Section Headings */
+
+    .section-header h2,
+    .approach-header h2,
+    .cta-inner h2 {
+        font-size: 34px;
+    }
+
+
+    /* Practice Areas */
+
+    .practice-heading h3 {
+        font-size: 23px;
+    }
+
+    .practice-body p,
+    .approach-content > p,
+    .cta-inner p:not(.eyebrow) {
+        font-size: 16px;
+    }
+
+
+    /* Approach Values */
+
+    .approach-values span {
+        min-height: 68px;
+        padding: 16px;
+        font-size: 15px;
+    }
+
 }
