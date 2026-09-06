@@ -272,7 +272,6 @@ a {
 
 .section-header h2,
 .approach-header h2,
-.cta-inner h2,
 .process-header h2,
 .process-cta-inner h2 {
     margin: 0;
@@ -378,32 +377,8 @@ a {
 
 
 /* ==============================
-   Final CTA
+   Buttons
    ============================== */
-
-.services-cta {
-    padding: 104px 0 112px;
-    background: #F8FAFC;
-    border-top: 1px solid var(--border);
-}
-
-.cta-inner {
-    max-width: 760px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.cta-inner .eyebrow {
-    margin-bottom: 20px;
-}
-
-.cta-inner p:not(.eyebrow) {
-    max-width: 680px;
-    margin: 28px auto 0;
-    color: var(--muted);
-    font-size: 17px;
-    line-height: 1.75;
-}
 
 .button {
     display: inline-flex;
@@ -844,13 +819,6 @@ a {
     }
 
 
-    /* CTA */
-
-    .services-cta {
-        padding: 80px 0;
-    }
-
-
     /* Hero (Home + Process) */
 
     .hero {
@@ -990,7 +958,6 @@ a {
 
     .section-header h2,
     .approach-header h2,
-    .cta-inner h2,
     .process-header h2,
     .process-cta-inner h2 {
         font-size: 34px;
@@ -1004,8 +971,7 @@ a {
     }
 
     .practice-body p,
-    .approach-content > p,
-    .cta-inner p:not(.eyebrow) {
+    .approach-content > p {
         font-size: 16px;
     }
 
