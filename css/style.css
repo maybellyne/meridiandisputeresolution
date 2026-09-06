@@ -272,7 +272,9 @@ a {
 
 .section-header h2,
 .approach-header h2,
-.cta-inner h2 {
+.cta-inner h2,
+.process-header h2,
+.process-cta-inner h2 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -427,6 +429,298 @@ a {
 
 
 /* ==============================
+   Hero (Home + Process)
+   ============================== */
+
+.hero {
+    padding: 100px 0 112px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.hero h1,
+.consultation-header h1 {
+    margin: 0;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(44px, 5vw, 58px);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.hero-copy,
+.consultation-copy {
+    max-width: 620px;
+    margin: 32px 0 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.hero-actions {
+    display: flex;
+}
+
+.hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+}
+
+
+/* Meridian Icon Placeholder */
+
+.meridian-placeholder {
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+
+.placeholder-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 200px;
+    background: var(--navy);
+    transform: translate(-50%, -50%);
+}
+
+.placeholder-arc {
+    position: absolute;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--teal);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.placeholder-arc-left {
+    left: 15px;
+    border-right-color: transparent;
+}
+
+.placeholder-arc-right {
+    right: 15px;
+    border-left-color: transparent;
+}
+
+
+/* ==============================
+   Process Hero
+   ============================== */
+
+.process-hero-placeholder {
+    min-height: 420px;
+    border: 1px solid var(--border);
+    background: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--muted);
+}
+
+.process-hero-placeholder span {
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.process-hero-placeholder small {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+
+/* ==============================
+   Process Steps
+   ============================== */
+
+.process-section {
+    padding: 112px 0 120px;
+}
+
+.process-header {
+    max-width: 760px;
+    margin-bottom: 56px;
+}
+
+.process-header .eyebrow {
+    margin-bottom: 20px;
+}
+
+.process-list {
+    border-top: 1px solid var(--border);
+}
+
+.process-step {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.process-number {
+    color: var(--teal);
+    font-family: "Archivo", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.process-content h3 {
+    margin: 0 0 12px;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.process-content p {
+    margin: 0;
+    max-width: 640px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   Process CTA
+   ============================== */
+
+.process-cta {
+    padding: 96px 0;
+}
+
+.process-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 56px 64px;
+    background: var(--navy);
+}
+
+.process-cta-inner .eyebrow {
+    margin: 0 0 16px;
+    color: #7DD3C0;
+}
+
+.process-cta-inner h2 {
+    color: #FFFFFF;
+}
+
+.process-cta-inner p:not(.eyebrow) {
+    max-width: 480px;
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.process-cta-inner .hero-actions {
+    flex-shrink: 0;
+}
+
+.process-cta-inner .button-primary {
+    background: var(--teal);
+}
+
+.process-cta-inner .button-primary:hover,
+.process-cta-inner .button-primary:focus-visible {
+    background: #FFFFFF;
+    color: var(--navy);
+}
+
+
+/* ==============================
+   Consultation (Contact)
+   ============================== */
+
+.consultation {
+    padding: 100px 0 120px;
+}
+
+.consultation-header {
+    max-width: 700px;
+    margin: 0 auto 64px;
+    text-align: center;
+}
+
+.consultation-header .eyebrow {
+    margin-bottom: 20px;
+}
+
+.consultation-copy {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    gap: 56px;
+    align-items: start;
+}
+
+.contact-image-placeholder {
+    min-height: 480px;
+    border: 1px solid var(--border);
+    background: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--muted);
+}
+
+.contact-image-placeholder span {
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.contact-image-placeholder small {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.consultation-form {
+    display: flex;
+    justify-content: center;
+}
+
+.consultation-form iframe {
+    width: 100%;
+    max-width: 640px;
+    height: 900px;
+    border: none;
+}
+
+
+/* ==============================
    Responsive
    ============================== */
 
@@ -454,6 +748,18 @@ a {
 
     .approach-inner {
         gap: 64px;
+    }
+
+    .hero-grid {
+        gap: 56px;
+    }
+
+    .contact-grid {
+        gap: 40px;
+    }
+
+    .process-cta-inner {
+        padding: 48px;
     }
 
 }
@@ -544,6 +850,96 @@ a {
         padding: 80px 0;
     }
 
+
+    /* Hero (Home + Process) */
+
+    .hero {
+        padding: 72px 0 80px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .hero-visual {
+        min-height: 300px;
+    }
+
+    .meridian-placeholder {
+        width: 220px;
+        height: 220px;
+    }
+
+    .placeholder-line {
+        height: 150px;
+    }
+
+    .placeholder-arc {
+        width: 120px;
+        height: 120px;
+    }
+
+    .process-hero-placeholder {
+        min-height: 300px;
+    }
+
+
+    /* Process Steps */
+
+    .process-section {
+        padding: 72px 0 80px;
+    }
+
+    .process-step {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 30px 0;
+    }
+
+    .process-number {
+        font-size: 26px;
+    }
+
+
+    /* Process CTA */
+
+    .process-cta {
+        padding: 72px 0;
+    }
+
+    .process-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 40px 32px;
+    }
+
+
+    /* Consultation (Contact) */
+
+    .consultation {
+        padding: 72px 0 80px;
+    }
+
+    .consultation-header {
+        margin-bottom: 48px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-image-placeholder {
+        min-height: 280px;
+    }
+
+    .consultation-form iframe {
+        max-width: 100%;
+        height: 1150px;
+    }
+
 }
 
 
@@ -577,11 +973,26 @@ a {
     }
 
 
+    /* Hero (Home + Process) */
+
+    .hero h1,
+    .consultation-header h1 {
+        font-size: 42px;
+    }
+
+    .hero-copy,
+    .consultation-copy {
+        font-size: 16px;
+    }
+
+
     /* Section Headings */
 
     .section-header h2,
     .approach-header h2,
-    .cta-inner h2 {
+    .cta-inner h2,
+    .process-header h2,
+    .process-cta-inner h2 {
         font-size: 34px;
     }
 
@@ -596,6 +1007,17 @@ a {
     .approach-content > p,
     .cta-inner p:not(.eyebrow) {
         font-size: 16px;
+    }
+
+
+    /* Process Steps */
+
+    .process-content h3 {
+        font-size: 20px;
+    }
+
+    .process-cta-inner {
+        padding: 32px 24px;
     }
 
 
