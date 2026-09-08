@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maybellyne.github.io/meridiandisputeresolution/sitemap.xml
