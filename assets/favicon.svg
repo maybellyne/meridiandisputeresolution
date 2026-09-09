@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+  <path d="M148 43 C94 56 60 103 60 180 C60 257 94 304 148 317"
+        fill="none" stroke="#1E3A8A" stroke-width="5.5" stroke-linecap="butt"/>
+  <path d="M212 43 C266 56 300 103 300 180 C300 257 266 304 212 317"
+        fill="none" stroke="#0F766E" stroke-width="5.5" stroke-linecap="butt"/>
+  <path d="M180 25 L180 335" fill="none" stroke="#1F2D3D" stroke-width="4.8"/>
+</svg>
