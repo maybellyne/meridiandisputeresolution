@@ -55,50 +55,16 @@ a {
     gap: 48px;
 }
 
-.wordmark {
+.wordmark-logo {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
     flex-shrink: 0;
 }
 
-.wordmark-main {
-    color: var(--navy);
-    font-family: "Archivo", sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    line-height: 1;
-}
-
-.wordmark-rule {
-    width: 100%;
-    height: 10px;
-    position: relative;
+.wordmark-logo img {
     display: block;
-    border-top: 1px solid var(--navy);
-    margin-top: 7px;
-}
-
-.wordmark-diamond {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: var(--teal);
-    transform: rotate(45deg);
-    top: -3px;
-    left: 50%;
-    margin-left: -2.5px;
-}
-
-.wordmark-sub {
-    color: var(--navy);
-    font-family: "Archivo", sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    line-height: 1;
-    white-space: nowrap;
+    height: 44px;
+    width: auto;
 }
 
 
@@ -740,6 +706,10 @@ a {
         justify-content: center;
         gap: 18px;
         padding: 18px 0;
+    }
+
+    .wordmark-logo img {
+        height: 38px;
     }
 
     .site-nav {
