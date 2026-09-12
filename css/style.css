@@ -63,7 +63,7 @@ a {
 
 .wordmark-logo img {
     display: block;
-    height: 44px;
+    height: 30px;
     width: auto;
 }
 
@@ -150,7 +150,7 @@ a {
    ============================== */
 
 .services-hero {
-    padding: 100px 0 112px;
+    padding: 100px 0 64px;
 }
 
 .services-hero-grid {
@@ -358,7 +358,7 @@ a {
    ============================== */
 
 .hero {
-    padding: 100px 0 112px;
+    padding: 100px 0 64px;
 }
 
 .hero-grid {
@@ -525,13 +525,9 @@ a {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+    grid-template-columns: minmax(360px, 1.1fr) minmax(0, 0.9fr);
     gap: 56px;
     align-items: start;
-}
-
-.contact-image {
-    min-height: 480px;
 }
 
 .consultation-form {
@@ -641,7 +637,7 @@ a {
 .page-hero-image {
     display: block;
     width: 100%;
-    min-height: 420px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
 }
 
@@ -650,6 +646,24 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+
+/* ==============================
+   Site Footer
+   ============================== */
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0;
+}
+
+.site-footer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
 }
 
 
@@ -709,7 +723,7 @@ a {
     }
 
     .wordmark-logo img {
-        height: 38px;
+        height: 26px;
     }
 
     .site-nav {
@@ -717,6 +731,15 @@ a {
         justify-content: center;
         flex-wrap: wrap;
         gap: 8px 22px;
+    }
+
+    .site-footer {
+        padding: 24px 0;
+    }
+
+    .site-footer p {
+        font-size: 12px;
+        padding: 0 16px;
     }
 
     .site-nav a {
@@ -737,10 +760,6 @@ a {
     .services-hero-grid {
         grid-template-columns: 1fr;
         gap: 56px;
-    }
-
-    .services-hero-visual {
-        min-height: 300px;
     }
 
 
@@ -830,10 +849,6 @@ a {
         gap: 40px;
     }
 
-    .contact-image {
-        min-height: 280px;
-    }
-
     .consultation-form iframe {
         max-width: 100%;
         height: 1150px;
@@ -857,12 +872,6 @@ a {
         font-size: 15px;
     }
 
-
-    /* Page Hero Image */
-
-    .page-hero-image {
-        min-height: 300px;
-    }
 
 }
 
