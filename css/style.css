@@ -63,7 +63,7 @@ a {
 
 .wordmark-logo img {
     display: block;
-    height: 30px;
+    height: 36px;
     width: auto;
 }
 
@@ -149,44 +149,8 @@ a {
    Services Hero
    ============================== */
 
-.services-hero {
-    padding: 100px 0 64px;
-}
-
-.services-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-    align-items: center;
-    gap: 80px;
-}
-
-.services-hero-content {
-    max-width: 680px;
-}
-
-.services-hero h1 {
-    margin: 0;
-    color: var(--navy);
-    font-family: "Archivo", sans-serif;
-    font-size: clamp(44px, 5vw, 58px);
-    font-weight: 600;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-}
-
-.services-hero-copy {
-    max-width: 620px;
-    margin: 32px 0 0;
-    color: var(--muted);
-    font-size: 18px;
-    line-height: 1.75;
-}
-
 .services-hero-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 420px;
+    display: block;
 }
 
 /* ==============================
@@ -211,7 +175,8 @@ a {
 .section-header h2,
 .approach-header h2,
 .process-header h2,
-.process-cta-inner h2 {
+.process-cta-inner h2,
+.about-content-inner h2 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -281,12 +246,17 @@ a {
     margin-bottom: 20px;
 }
 
-.approach-content > p {
+.approach-content > p,
+.about-content-inner p {
     max-width: 760px;
     margin: 0;
     color: var(--muted);
     font-size: 18px;
     line-height: 1.8;
+}
+
+.about-content-inner p + p {
+    margin-top: 24px;
 }
 
 
@@ -357,23 +327,28 @@ a {
    Hero (Home + Process)
    ============================== */
 
-.hero {
+.hero,
+.services-hero,
+.about-hero {
     padding: 100px 0 64px;
 }
 
-.hero-grid {
+.hero-grid,
+.services-hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
-    align-items: center;
     gap: 80px;
 }
 
-.hero-content {
+.hero-content,
+.services-hero-content {
     max-width: 680px;
 }
 
 .hero h1,
-.consultation-header h1 {
+.services-hero h1,
+.consultation-header h1,
+.about-header h1 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -384,7 +359,9 @@ a {
 }
 
 .hero-copy,
-.consultation-copy {
+.services-hero-copy,
+.consultation-copy,
+.about-copy {
     max-width: 620px;
     margin: 32px 0 0;
     color: var(--muted);
@@ -394,6 +371,44 @@ a {
 
 .hero-actions {
     display: flex;
+}
+
+/* ==============================
+   About Page
+   ============================== */
+
+.about-intro {
+    max-width: 760px;
+}
+
+.about-section {
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+}
+
+.about-container {
+    max-width: 760px;
+}
+
+.about-section h2 {
+    margin: 0 0 32px;
+    color: var(--navy);
+    font-family: "Archivo", sans-serif;
+    font-size: clamp(28px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.about-section p {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
 }
 
 /* ==============================
@@ -508,7 +523,8 @@ a {
     padding: 100px 0 120px;
 }
 
-.consultation-header {
+.consultation-header,
+.about-header {
     max-width: 700px;
     margin: 0 auto 64px;
     text-align: center;
@@ -518,7 +534,8 @@ a {
     margin-bottom: 20px;
 }
 
-.consultation-copy {
+.consultation-copy,
+.about-copy {
     margin-left: auto;
     margin-right: auto;
 }
@@ -540,6 +557,28 @@ a {
     max-width: 640px;
     height: 900px;
     border: none;
+}
+
+
+/* ==============================
+   About Content
+   ============================== */
+
+.about-content {
+    padding: 0 0 120px;
+}
+
+.about-content-inner {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about-content-inner h2:not(:first-child) {
+    margin-top: 64px;
+}
+
+.about-content-inner h2 {
+    margin-bottom: 24px;
 }
 
 
@@ -641,6 +680,16 @@ a {
     overflow: hidden;
 }
 
+/* On the text+image hero layouts, stretch the image to fill the
+   row exactly instead of centering a fixed-ratio box within it -
+   this is what removes the whitespace above/below the image when
+   the text column is taller than a 4:3 box would be. */
+.hero-grid .page-hero-image,
+.services-hero-grid .page-hero-image {
+    aspect-ratio: unset;
+    height: 100%;
+}
+
 .page-hero-image img {
     display: block;
     width: 100%;
@@ -660,7 +709,7 @@ a {
 
 .site-footer p {
     margin: 0;
-    color: var(--muted);
+    color: var(--navy);
     font-size: 13px;
     line-height: 1.7;
     text-align: center;
@@ -685,7 +734,8 @@ a {
         font-size: 13px;
     }
 
-    .services-hero-grid {
+    .services-hero-grid,
+    .hero-grid {
         gap: 56px;
     }
 
@@ -695,10 +745,6 @@ a {
 
     .approach-inner {
         gap: 64px;
-    }
-
-    .hero-grid {
-        gap: 56px;
     }
 
     .contact-grid {
@@ -723,7 +769,7 @@ a {
     }
 
     .wordmark-logo img {
-        height: 26px;
+        height: 30px;
     }
 
     .site-nav {
@@ -748,18 +794,6 @@ a {
 
     .nav-current {
         min-height: 36px !important;
-    }
-
-
-    /* Services Hero */
-
-    .services-hero {
-        padding: 72px 0 80px;
-    }
-
-    .services-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 56px;
     }
 
 
@@ -792,15 +826,31 @@ a {
     }
 
 
-    /* Hero (Home + Process) */
+    /* About Page */
 
-    .hero {
+    .about-section {
+        padding: 48px 0;
+    }
+
+
+    /* Hero (Home + Process + Services) */
+
+    .hero,
+    .services-hero,
+    .about-hero {
         padding: 72px 0 80px;
     }
 
-    .hero-grid {
+    .hero-grid,
+    .services-hero-grid {
         grid-template-columns: 1fr;
         gap: 56px;
+    }
+
+    .hero-grid .page-hero-image,
+    .services-hero-grid .page-hero-image {
+        aspect-ratio: 4 / 3;
+        height: auto;
     }
 
     /* Process Steps */
@@ -895,25 +945,16 @@ a {
     }
 
 
-    /* Services Hero */
-
-    .services-hero h1 {
-        font-size: 42px;
-    }
-
-    .services-hero-copy {
-        font-size: 16px;
-    }
-
-
-    /* Hero (Home + Process) */
+    /* Hero (Home + Process + Services) */
 
     .hero h1,
+    .services-hero h1,
     .consultation-header h1 {
         font-size: 42px;
     }
 
     .hero-copy,
+    .services-hero-copy,
     .consultation-copy {
         font-size: 16px;
     }
@@ -924,7 +965,8 @@ a {
     .section-header h2,
     .approach-header h2,
     .process-header h2,
-    .process-cta-inner h2 {
+    .process-cta-inner h2,
+    .about-section h2 {
         font-size: 34px;
     }
 
