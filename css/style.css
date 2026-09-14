@@ -217,7 +217,7 @@ a {
 .practice-icon rect,
 .practice-icon line,
 .practice-icon path {
-    stroke: var(--navy);
+    stroke: var(--teal);
     fill: none;
     stroke-width: 1.75;
     stroke-linecap: round;
@@ -421,6 +421,10 @@ a {
     font-weight: 600;
     line-height: 1.45;
     letter-spacing: -0.01em;
+}
+
+.about-quote p + p {
+    margin-top: 24px;
 }
 
 .about-section {
