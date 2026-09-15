@@ -85,7 +85,7 @@ a {
     min-height: 40px;
     padding: 8px 0;
     color: var(--text);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     white-space: nowrap;
     transition: color 0.2s ease;
@@ -777,7 +777,7 @@ a {
     }
 
     .site-nav a {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .services-hero-grid,
