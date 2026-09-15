@@ -178,7 +178,8 @@ a {
 .process-cta-inner h2,
 .about-content-inner h2,
 .practice-teaser-header h2,
-.process-teaser-header h2 {
+.process-teaser-header h2,
+.faq-teaser-header h2 {
     margin: 0;
     color: var(--navy);
     font-family: "Archivo", sans-serif;
@@ -358,6 +359,30 @@ a {
     color: var(--muted);
     font-size: 15px;
     line-height: 1.7;
+}
+
+
+/* ==============================
+   FAQ Teaser (Home)
+   ============================== */
+
+.faq-teaser {
+    padding: 96px 0 112px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.faq-teaser-header {
+    max-width: 640px;
+}
+
+.faq-teaser-header .eyebrow {
+    margin-bottom: 20px;
+}
+
+.faq-list.faq-teaser-list {
+    margin: 56px 0 0;
+    max-width: none;
 }
 
 
@@ -994,6 +1019,17 @@ a {
     .process-teaser-steps {
         grid-template-columns: 1fr;
         gap: 32px;
+        margin-top: 40px;
+    }
+
+
+    /* FAQ Teaser (Home) */
+
+    .faq-teaser {
+        padding: 72px 0 80px;
+    }
+
+    .faq-teaser-list {
         margin-top: 40px;
     }
 
