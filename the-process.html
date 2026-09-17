@@ -41,7 +41,13 @@
             <a href="index.html" class="wordmark-logo" aria-label="Meridian Dispute Resolution home">
                 <img src="assets/MDR_svg%20logo.svg" alt="Meridian Dispute Resolution Inc." width="600" height="200">
             </a>
-            <nav class="site-nav" aria-label="Main navigation">
+
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
                 <a href="about.html">About</a>
                 <a href="services.html">How We Help</a>
                 <a href="the-process.html" class="nav-current" aria-current="page">How Mediation Works</a>
@@ -213,5 +219,6 @@
         </div>
     </footer>
 
+    <script src="js/nav.js" defer></script>
 </body>
 </html>
