@@ -1,0 +1,19 @@
+# Meridian Dispute Resolution Inc.
+
+> Meridian Dispute Resolution is a Saskatchewan-based mediation practice offering neutral, structured mediation for family, estate, workplace, business, and community disputes. Available virtually and in person across Canada.
+
+## Pages
+
+- [Home](https://maybellyne.github.io/meridiandisputeresolution/): Overview of Meridian's mediation services and approach.
+- [About](https://maybellyne.github.io/meridiandisputeresolution/about.html): Background on founder and mediator Mabel Adekola.
+- [How We Help](https://maybellyne.github.io/meridiandisputeresolution/services.html): Practice areas — family and separation, estate and elder, workplace, business and commercial, and neighbour and community mediation.
+- [How Mediation Works](https://maybellyne.github.io/meridiandisputeresolution/the-process.html): The four-step mediation process, from initial consultation through agreement.
+- [FAQs](https://maybellyne.github.io/meridiandisputeresolution/faq.html): Answers to common questions about cost, confidentiality, and process.
+- [Contact](https://maybellyne.github.io/meridiandisputeresolution/contact.html): Schedule a free 30-minute consultation.
+
+## Details
+
+- Rate: $150 CAD/hour
+- Free 30-minute initial consultation, no obligation to proceed
+- Service area: Saskatchewan, with virtual mediation available across Canada
+- Mediator holds a Qualified Mediator designation recognized by the ADR Institute of Canada (ADRIC) 
