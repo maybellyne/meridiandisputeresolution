@@ -1206,7 +1206,6 @@ body.nav-open {
     .consultation {
         padding: 72px 0 80px;
     }
-
     .consultation-header {
         margin-bottom: 48px;
     }
@@ -1248,16 +1247,13 @@ body.nav-open {
     .container {
         width: min(100% - 32px, var(--container-width));
     }
-
-
     /* Hero (Home + Process + Services) */
 
     .hero h1,
     .services-hero h1,
     .consultation-header h1 {
-        font-size: 42px;
+        font-size: 38px;
     }
-
     .hero-copy,
     .services-hero-copy,
     .consultation-copy {
