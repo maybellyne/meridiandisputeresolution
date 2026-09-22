@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maybellyne.github.io/meridiandisputeresolution/sitemap.xml
+Sitemap: https://meridiandisputeresolution.ca/sitemap.xml
