@@ -26,6 +26,10 @@
     #mdr-sms-status { margin: 0; font-size: .9em; min-height: 1.2em; }
     #mdr-sms-form small { color: #666; }
     .mdr-hp { position: absolute; left: -9999px; }
+    #mdr-sms-form { position: relative; }
+    #mdr-sms-form strong { padding-right: 24px; }
+    #mdr-sms-close { position: absolute; top: 6px; right: 8px; width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #666; font-size: 22px; line-height: 1; cursor: pointer; }
+    #mdr-sms-close:hover { color: #0F766E; } 
   `;
 
   const style = document.createElement('style');
@@ -36,6 +40,7 @@
   wrap.id = 'mdr-sms';
   wrap.innerHTML = `
     <form id="mdr-sms-form" hidden novalidate>
+    <button type="button" id="mdr-sms-close" aria-label="Close">&times;</button>
       <strong>Prefer to text? Schedule a free consultation</strong>
       <label>Your name
         <input name="name" autocomplete="given-name" required>
@@ -73,6 +78,7 @@
     if (open) form.elements.name.focus();
   }
   toggle.addEventListener('click', () => setOpen(form.hidden));
+  wrap.querySelector('#mdr-sms-close').addEventListener('click', () => { setOpen(false); toggle.focus(); });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !form.hidden) setOpen(false);
   });
