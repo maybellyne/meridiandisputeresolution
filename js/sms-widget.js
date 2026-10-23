@@ -1,13 +1,3 @@
-/*
-  Meridian Dispute Resolution - "Text us" widget
-  Visitor submits name + mobile + dispute type -> Formspree emails the request.
-  You then text the visitor back from TextNow.
-
-  SETUP: replace FORMSPREE_ENDPOINT below with your form's URL
-  (Formspree dashboard -> your form -> copy the endpoint, e.g. https://formspree.io/f/abcdwxyz).
-  Then add to EVERY page (including contact.html), just before </body>:
-      <script src="/sms-widget.js" defer></script>
-*/
 (function () {
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkjjnavq';
   const DISPUTE_TYPES = [
@@ -16,7 +6,7 @@
     'Workplace',
     'Business & Commercial',
     'Neighbour & Community',
-    'Not sure',
+    'I need to explain',
   ];
 
   const css = `
@@ -46,14 +36,14 @@
   wrap.id = 'mdr-sms';
   wrap.innerHTML = `
     <form id="mdr-sms-form" hidden novalidate>
-      <strong>Prefer to text? Request a free consultation</strong>
+      <strong>Prefer to text? Schedule a free consultation</strong>
       <label>Your name
         <input name="name" autocomplete="given-name" required>
       </label>
-      <label>Mobile number
+      <label>Your mobile number
         <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(306) 555-0123" required>
       </label>
-      <label>What kind of dispute?
+      <label>The type of dispute
         <select name="dispute_type" required>
           <option value="" disabled selected>Select one</option>
           ${DISPUTE_TYPES.map((t) => `<option>${t}</option>`).join('')}
@@ -62,13 +52,13 @@
       <input class="mdr-hp" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="mdr-consent">
         <input type="checkbox" name="consent" required>
-        <span>I agree Meridian may text me at this number about my request.</span>
+        <span>I agree that MeridianDR may text me at this mobile number about my request.</span>
       </label>
-      <button type="submit">Send request</button>
+      <button type="submit">Send message</button>
       <p id="mdr-sms-status" role="status" aria-live="polite"></p>
-      <small>Please don't include sensitive details here. We'll text you back, usually within one business day.</small>
+      <small>Do not include sensitive information here. We'll text you back, usually within one business day.</small>
     </form>
-    <button id="mdr-sms-toggle" type="button" aria-expanded="false" aria-controls="mdr-sms-form">&#128172; Text us</button>
+    <button id="mdr-sms-toggle" type="button" aria-expanded="false" aria-controls="mdr-sms-form">&#128172; Text Us</button>
   `;
   document.body.appendChild(wrap);
 
@@ -109,11 +99,11 @@
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           // Subject shows on your phone's lock screen, so it carries the key info.
-          _subject: `SMS Inquiry: ${name}-${phone} - ${type}`,
+          _subject: `SMS Inquiry: ${name} | ${phone} | ${type}`,
           name,
           phone,
           dispute_type: type,
-          consent: 'Agreed to be texted at this number',
+          consent: 'agreed to be texted at this number',
           _gotcha: '',
         }),
       });
